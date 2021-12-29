@@ -1,0 +1,30 @@
+<head>
+  <!--Include the Socket.io real time library -->
+  <script src="/socket.io/socket.io.js"></script>
+  
+</head>
+
+<%- include('header'); %>
+
+<!--- Output List of users from Client.js !--> 
+<div>
+  <h3>Admin</h3>
+  <b>Registered Users</b><br/>
+  <ul id="usersList"></ul>
+</div>
+
+<%- include('footer'); %>
+
+<script>
+  var socket = io();
+  socket.emit('want-users-list');
+  socket.on('users-list', function (usersArray) {
+                var listElement = document.getElementById('usersList');
+                // For each user in Users array...
+                usersArray.forEach((user) => {
+                    const newElement = document.createElement('li');
+                    newElement.textContent = user.username;
+                    listElement.appendChild(newElement);
+                });
+      });
+</script>

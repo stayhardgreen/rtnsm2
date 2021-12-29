@@ -1,0 +1,6 @@
+{
+    "mongoConfig": {
+      "serverUrl": "mongodb+srv://devconnector:DevConnector1234@devconnector.nml2s.mongodb.net/devConnector?retryWrites=true&w=majority",
+      "database": "daniel"
+    }
+  }
